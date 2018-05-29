@@ -16,18 +16,18 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks')->with('tasks', $tasks);
+        return view('tasks');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Return all resources.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function all()
     {
-        //
+        $tasks = Task::all();
+        return $this->sendResponse($tasks,trans('task.messages.read.success'));
     }
 
     /**
@@ -53,21 +53,6 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Task $task)
-    {
-        if ($task) {
-            return $this->sendResponse($task, trans('task.messages.read.success'));
-        } else {
-            return $this->sendError(trans('task.messages.read.failed'));
-        }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Task $task
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Task $task)
     {
         if ($task) {
             return $this->sendResponse($task, trans('task.messages.read.success'));

@@ -1,4 +1,4 @@
-<div class="modal" tabindex="-1" role="dialog" id="task_edit_modal">
+<div class="modal" tabindex="-1" role="dialog" id="task_create_modal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="task_form">
+                <form id="task_form" action="{{route('task.store')}}" method="post">
                     <input type="hidden" name="id" class="edit-id">
                     <div class="form-group">
                         <label>{{trans('task.fields.title')}}</label>
@@ -35,7 +35,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary crud-submit-edit">Save changes</button>
+                <button type="submit" class="btn btn-primary crud-submit">Save changes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>

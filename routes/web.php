@@ -1,2 +1,2 @@
 <?php
-Route::resource('/', 'TaskController');
+Route::get('/', 'TaskController@index');
